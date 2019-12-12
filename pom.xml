@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.com.cpqd.tts</groupId>
 	<artifactId>synthesizer-parent</artifactId>
-	<version>4.4-SNAPSHOT</version>
+	<version>4.4.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Java SDK for CPqD TTS</name>
-	<description></description>
+	<description />
 
 	<modules>
 		<module>synthesizer</module>
@@ -27,6 +26,12 @@
 		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
 		<maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
 	</properties>
+
+	<scm>
+	    <developerConnection>scm:git:ssh://git@github.com/brunexgeek/tts-sdk-java.git</developerConnection>
+		<url>https://maven.pkg.github.com/brunexgeek/tts-sdk-java</url>
+		<tag>HEAD</tag>
+	</scm>
 
 	<build>
 		<pluginManagement>
@@ -55,9 +60,41 @@
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>${maven-jar-plugin.version}</version>
 				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>3.0.0-M1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<configuration>
+						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<tagNameFormat>v@{project.version}</tagNameFormat>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<developers>
+		<developer>
+			<name>Vanessa Graciela</name>
+			<timezone>America/Sao_Paulo</timezone>
+			<roles>
+				<role>commiter</role>
+			</roles>
+		</developer>
+		<developer>
+			<name>Bruno Ribeiro</name>
+			<timezone>America/Sao_Paulo</timezone>
+			<roles>
+				<role>committer</role>
+			</roles>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -66,5 +103,13 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+
+	<distributionManagement>
+		<repository>
+			<id>github-cpqd</id>
+			<name>CPqD Maven Packages</name>
+			<url>https://maven.pkg.github.com/brunexgeek/tts-sdk-java</url>
+		</repository>
+	</distributionManagement>
 
 </project>
