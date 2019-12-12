@@ -5,7 +5,7 @@
 
 	<groupId>br.com.cpqd.tts</groupId>
 	<artifactId>synthesizer-parent</artifactId>
-	<version>4.4.2</version>
+	<version>4.4.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Java SDK for CPqD TTS</name>
@@ -30,7 +30,7 @@
 	<scm>
 	    <developerConnection>scm:git:ssh://git@github.com/brunexgeek/tts-sdk-java.git</developerConnection>
 		<url>https://maven.pkg.github.com/brunexgeek/tts-sdk-java</url>
-		<tag>v4.4.2</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<build>
